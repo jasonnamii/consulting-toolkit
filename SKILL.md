@@ -13,7 +13,28 @@ description: |
 
 컨설팅 5계열 25기술(MECE=미씨, 피라미드원칙, 소크라테스질문, 5Whys 등) 자동 라우팅. 형은 자연어만 쓰고, Claude가 적합한 컨설팅기술을 꺼내 적용한다.
 
+
+## Skill Boundaries
+
+- **하는 것** — 컨설팅 5계열 25기술 자동 라우팅.
+- **안 하는 것** — 제1원리·넛지·백본·스켈레톤 단어명시(→trigger-dictionary), 24사고도구(→trigger-dictionary), 사업전략(→biz-skill), 회의(→meeting-engine), 협상(→negotiation-skill).
+
 ---
+
+## When to Use
+
+- 사용자가 "구조화해줘", "쪼개줘", "설득해줘", "structure this", "persuade." 같은 표현으로 발동
+- 도메인 작업이 필요한 시점
+- **안 쓸 때** — 제1원리·넛지·백본·스켈레톤 단어명시(→trigger-dictionary), 24사고도구(→trigger-dictionary), 사업전략(→biz-skill), 회의(→meeting-engine), 협상(→negotiation-skill).
+
+
+## Prerequisites
+
+| # | 체크 | 미충족 시 |
+|---|------|-----------|
+| 1 | 대상·입력 명확 (스킬 발동 의도 확인) | 1줄 확인 후 진입 |
+| 2 | references/ 폴더 접근 가능 | inline fallback |
+
 
 ## 절대 규칙
 
@@ -155,7 +176,34 @@ description: |
 
 ---
 
-## Gotchas
+## Output Path
+
+| 산출물 | 경로 |
+|---|---|
+| 주 산출물 | `mnt/outputs/consulting-toolkit_{topic}_{YYYY-MM-DD}.md` |
+| 형식 | 구조화 산출물로, 설득안으로, .md로. |
+| 리서치 결과 (해당 시) | `{VAULT}/_skills research/consulting-toolkit/{YYYY-MM-DD}_{topic}.md` |
+
+## Reference Index
+
+| 파일 | 내용 | 언제 |
+|---|---|---|
+| `references/mode-protocol.md` | mode protocol | 해당 단계 진입 시 |
+| `references/routing-examples.md` | routing examples | 해당 단계 진입 시 |
+| `references/technique-catalog.md` | technique catalog | 해당 단계 진입 시 |
+
+
+## Next Phase
+
+본 스킬 작업 후 자연스럽게 이어지는 흐름:
+
+- 후속 작업 → `trigger-dictionary`
+- 후속 작업 → `trigger-dictionary`
+- 후속 작업 → `biz-skill`
+- 후속 작업 → `meeting-engine`
+- 후속 작업 → `negotiation-skill`
+
+## Failure Modes (Gotchas)
 
 | 함정 | 대응 |
 |------|------|
@@ -166,3 +214,11 @@ description: |
 | trigger-dictionary 24개 사고도구와 중복 호출 | P1 NOT 라우팅으로 차단. 사고도구는 철학·프레임 / 본 스킬은 실무 방법론 |
 | **중복 4쌍 경계** (제1원리·넛지·백본·스켈레톤) | 트리거어 **단어 명시** 호출("제1원리 해줘"·"넛지 설계") → trigger-dictionary 우선. **자연어 의도** ("기존 방식 안 돼"·"행동 유도") → consulting-toolkit 발동. 같은 도구여도 진입점 다름 |
 | 기술 적용 선언 빠뜨림 | 규칙 #1 위반. 출력 상단에 "적용 기술:" 1줄 필수 |
+
+
+## ❌ WRONG vs ✅ CORRECT
+
+```
+❌ WRONG: 트리거 단어만 보고 발동 — 본질·범위 확인 ✗ → 오발동·범위 이탈
+✅ CORRECT: Skill Boundaries·When to Use 확인 후 발동 → 본질 작업만 수행
+```
