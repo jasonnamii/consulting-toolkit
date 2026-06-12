@@ -1,5 +1,6 @@
 ---
 name: consulting-toolkit
+version: 1.0
 description: |
   컨설팅 5계열 25기술 자동 라우팅. 자연어→구조화·문제해결·질문·설득·실행 기술 선택·적용. 진단·적용·설계 3모드. 트리거: 컨설팅툴킷, 컨설팅기술, MECE, 미씨, 이슈트리, 피라미드원칙, SCQA, 로직트리, 5Whys, 파레토, RCA, 근본원인, 소크라테스질문, storylining, 가설검증, 80/20, nudging, reframing, 구조화해줘, 쪼개줘, 설득해줘, structure this. NOT: 제1원리·넛지·백본·스켈레톤 단어명시(→trigger-dictionary), 24사고도구(→trigger-dictionary), 사업전략(→biz-skill), 회의(→meeting-engine), 협상(→negotiation-skill).
 ---
